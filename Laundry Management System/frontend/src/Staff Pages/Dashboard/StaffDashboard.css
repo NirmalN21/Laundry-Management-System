@@ -1,0 +1,45 @@
+.staff-dashboard {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.staff-dashboard h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.staff-dashboard-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.staff-dashboard .user-input {
+    padding: 8px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.staff-dashboard .user-cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.staff-dashboard .user-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+    width: 300px;
+}
+
+.staff-dashboard h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.staff-dashboard p {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
