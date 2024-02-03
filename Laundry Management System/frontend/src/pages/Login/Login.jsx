@@ -33,7 +33,7 @@ const Login = () => {
 
             .then((res) => {
                 console.log(res);
-                dispatch({ type: "USER", payload: true });
+                dispatch({ type: "USER", payload: activeTab });
                 console.log("Login Successfull");
 
                 navigate('/');

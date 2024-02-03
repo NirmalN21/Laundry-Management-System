@@ -12,6 +12,7 @@ import ErrorPage from "./pages/Error Page/ErrorPage"
 import StaffDashboard from './Staff Pages/Dashboard/StaffDashboard';
 
 import { initialState, reducer } from "./reducer/useReducer";
+import PreviousComplaints from './Staff Pages/Complaint/PreviousComplaint';
 
 // Context API
 export const UserContext = createContext();
@@ -27,6 +28,7 @@ const Routing = () => {
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
       <Route path='/logout' element={<Logout />} />
+      <Route path='/staffComplaints' element={<PreviousComplaints />} />
 
       <Route path='*' element={<ErrorPage />} />
 

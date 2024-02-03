@@ -36,7 +36,6 @@ const Dashboard = () => {
         axios.get(`${SERVER_URL}/user/getData`, config)
             .then((result) => {
                 setUserData(result.data);
-                console.log(result.data);
 
             }).catch((err) => {
                 console.log(err);

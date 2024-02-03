@@ -1,0 +1,16 @@
+.cards-container{
+    display: flex;
+    border: 2px black solid;
+    padding-left: 3px;
+}
+
+.main-container{
+    margin: 4rem 15px 10px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+p{
+    margin: 5px;
+}

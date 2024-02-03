@@ -30,9 +30,8 @@ const About = () => {
     <>
     <Navbar/>
       <div className="container-main">
-        {/* <div className='form_background'> */}
         <div className="emp-profile">
-          <h2>Student Profile</h2>
+          <h2>Staff Profile</h2>
 
           <form method="GET">
             <div className="row ">
@@ -49,13 +48,12 @@ const About = () => {
               <div>{userData?.name}</div>
               <div>Student Email</div>
               <div>{userData?.email}</div>
-              <div>Registration No.</div>
-              <div>{userData?.registration}</div>
-              <div>Room No.</div>
-              <div>{userData?.room}</div>
+              <div>Staff ID</div>
+              <div>{userData?.userId}</div>
+              <div>Phone No.</div>
+              <div>{userData?.phone}</div>
             </div>
           </form>
-          {/* </div> */}
         </div>
       </div>
     </>

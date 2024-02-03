@@ -19,6 +19,7 @@ const Navbar = () => {
     const [ham, setHam] = useState(true);
 
     const RenderMenu = () => {
+        console.log(state,"USER");
         if (state) {
             return (
                 <>
@@ -27,15 +28,24 @@ const Navbar = () => {
                     <NavItem to="/dashboard" name="Dashboard" src={dashboard} />
                     <NavItem to="/Complaint" name="Complaint" src={contactMail} />
                     <NavItem to="/logout" name="Logout" src={logout} />
-                    <NavItem to="/staff/dashboard" name="StaffD" src={logout} />
+
                 </>
             )
-        } else {
+            } else if (state == "staff") {
+                return (
+                    <>
+                        <NavItem to="/about" name="About" src={details} />
+                        <NavItem to="/staff/dashboard" name="Dashbboard" src={dashboard} />
+                        <NavItem to="/staffComplaints" name="Complaints" src={contactMail} />
+                        <NavItem to="/logout" name="Logout" src={logout} />
+
+                    </>
+                )
+        }
+        else {
             return (
                 <>
                     <NavItem to="/" name="Home" src={homeIcon} />
-                    {/* <NavItem to="/about" name="About" /> */}
-                    {/* <NavItem to="/contact" name="Contact" /> */}
                     <NavItem to="/login" name="Login" src={login} />
                     <NavItem to="/register" name="Register" src={register} />
                 </>
@@ -45,7 +55,6 @@ const Navbar = () => {
 
     const handleClick = () => {
         const menu = document.getElementsByClassName("sidemenu");
-        // const complaintForm = document.getElementsByClassName("contact-body");
         if (ham) {
             setHam(false)
             menu[0].style.display = "flex";

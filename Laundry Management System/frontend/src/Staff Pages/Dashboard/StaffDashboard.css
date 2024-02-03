@@ -24,6 +24,7 @@
 .staff-dashboard .user-cards {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .staff-dashboard .user-card {
@@ -32,6 +33,7 @@
     margin: 10px;
     border-radius: 8px;
     width: 300px;
+    background-color: #fff;
 }
 
 .staff-dashboard h3 {
@@ -42,4 +44,29 @@
 .staff-dashboard p {
     font-size: 14px;
     margin-bottom: 8px;
+}
+
+.details-btn {
+    display: block;
+    background-color: #009879;
+    border-radius: 8px;
+    border-style: none;
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    margin: 0rem auto 0rem;
+    line-height: 20px;
+    outline: none;
+    padding:8px 14px;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+}
+
+.details-btn:hover,
+.details-btn:focus {
+    background-color: #006e58;
+    cursor: pointer;
 }

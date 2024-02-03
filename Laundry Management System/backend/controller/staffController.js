@@ -132,19 +132,22 @@ export const staffGetData = async function (req, res) {
 
 export const staffGetDataUser = async (req, res) => {
 
-    console.log("staffR");
     try {
-        const staffUserId = req.params.staffUserId;
+        const token = req.params.cookieValue;
+        const result = await verifyToken(token);
 
-        // Find users with the same userId as the staff member
-        const users = await User.find({ userId: staffUserId });
-
-        if (!users || users.length === 0) {
-            return res.status(404).json({ message: 'No users found for the specified staff member.' });
+        if (result.success) {
+            console.log("Authorization successfull");
+            console.log(result.user.userId);
+            const users = await User.find({ userId: result.user.userId });
+            if (!users || users.length === 0) {
+                return res.status(404).json({ message: 'No users found for the specified staff member.' });
+            }
+            res.status(200).json({ users });
+        } else {
+            throw new Error("User Not Found")
         }
 
-        // Return the list of users
-        res.status(200).json({ users });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Internal Server Error' });
@@ -193,4 +196,33 @@ export const staffUpdateProfile = async (req, res) => {
         console.log(error);
     }
 
+}
+
+export const staffGetComplaints = async (req, res) => {
+    try {
+        const token = req.params.cookieValue;
+        const result = await verifyToken(token);
+
+        if (result.success) {
+            console.log("Authorization successfull");
+            const users = await User.find({ userId: result.user.userId });
+            if (!users || users.length === 0) {
+                return res.status(404).json({ message: 'No users found for the specified staff member.' });
+            }
+
+            const complaints = users.map(user => user.messages).flat();
+
+            if (!complaints || complaints.length === 0) {
+                return res.status(404).json({ message: 'No messages found for the specified staff member.' });
+            }
+            console.log(complaints);
+            res.status(200).json({ complaints });
+        } else {
+            throw new Error("User Not Found")
+        }
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
 }
